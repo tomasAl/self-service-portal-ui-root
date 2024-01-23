@@ -1,0 +1,50 @@
+<single-spa-router>
+  <main>
+    <nav class="topnav">
+      <application name="@rc-ses/self-service-portal-ui"></application>
+      <!-- <application name="@rc-ses/self-service-portal-nav"></application> -->
+      <!-- <strong>Registrų Centras</strong> -->
+    </nav>
+
+    <div id="container">      
+      <route path="/" exact>
+        <center>
+          <h2>Titulinis</h2>
+          <span>Pasirinkite paslaugą</span>
+        </center>
+      </route>
+
+      <route path="/krepselis">
+        <center>
+          Krepšelis
+        </center>
+      </route>
+
+      <route path="/demo-paslaugos/react">
+        <application name="@rc-ses/self-service-provider-demo-react-ui"></application>
+      </route>
+
+      <route path="/demo-paslaugos/angular">
+        <application name="@rc-ses/self-service-provider-demo-angular-ui"></application>
+      </route>
+
+      <route path="/demo-paslaugos/vue">
+        <application name="@rc-ses/self-service-provider-demo-vue-ui"></application>
+      </route>
+      
+      <route default>
+        <center>
+          <h1>404</h1>
+          <a href="/">
+            <small>¯\_(ツ)_/¯</small>
+          </a>
+        </center>
+      </route>
+    </div>
+
+    <footer>
+      <!-- <application name="@rc-ses/footer"></application> -->
+      © Valstybės įmonė Registrų centras
+    </footer>
+  </main>
+</single-spa-router>
