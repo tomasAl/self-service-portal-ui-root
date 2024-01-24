@@ -9,7 +9,7 @@ COPY public/favicon.ico /usr/share/nginx/html
 RUN npm i --silent
 COPY . /usr/src/app
 
-RUN rm -v /usr/src/app/.env
+#RUN rm -v /usr/src/app/.env
 COPY .env.docker /usr/src/app/.env
 # ENV REACT_APP_API_URL undefined
 # ENV REACT_APP_API_ENDPOINT undefined
