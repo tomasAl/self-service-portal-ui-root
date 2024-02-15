@@ -1,0 +1,35 @@
+version: '3'
+services:
+  self-service-portal-ui-root:
+    build: ./
+    image: self-service-portal-ui-root
+    ports:
+      - "9000:80"
+  self-service-portal-ui:
+    build: ../self-service-portal-ui
+    image: self-service-portal-ui
+    depends_on:
+      - self-service-portal-ui-root
+    ports:
+      - "9001:81"
+  self-service-provider-demo-react-ui:
+    build: ../self-service-provider-demo-react-ui
+    image: self-service-provider-demo-react-ui
+    depends_on:
+      - self-service-portal-ui-root
+    ports:
+      - "9101:82"
+  self-service-provider-demo-angular-ui:
+    build: ../self-service-provider-demo-angular-ui
+    image: self-service-provider-demo-angular-ui
+    depends_on:
+      - self-service-portal-ui-root
+    ports:
+      - "9102:83"
+  self-service-provider-demo-vue-ui:
+    build: ../self-service-provider-demo-vue-ui
+    image: self-service-provider-demo-vue-ui
+    depends_on:
+      - self-service-portal-ui-root
+    ports:
+      - "9103:84"

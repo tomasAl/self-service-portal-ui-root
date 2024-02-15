@@ -1,0 +1,14 @@
+{
+  "extends": "ts-config-single-spa",
+  "files": [
+    "src/rc-ses-self-service-portal-ui-root.ts"
+  ],
+  "typeRoots": [
+    "./@types"
+  ],
+  "compilerOptions": {
+    "declarationDir": "dist"
+  },
+  "include": ["src/**/*", "@types/**/*"],
+  "exclude": ["src/**/*.test*"]
+}
