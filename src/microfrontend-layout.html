@@ -6,7 +6,7 @@
       <!-- <strong>Registrų Centras</strong> -->
     </nav>
 
-    <div id="container">      
+    <div id="container">
       <route path="/" exact>
         <center>
           <h2>Titulinis</h2>
@@ -31,7 +31,11 @@
       <route path="/demo-paslaugos/vue">
         <application name="@rc-ses/self-service-provider-demo-vue-ui"></application>
       </route>
-      
+
+      <route path="/demo-paslaugos/vue-nots">
+        <application name="@rc-ses/self-service-provider-demo-vue-ui-nots"></application>
+      </route>
+
       <route default>
         <center>
           <h1>404</h1>
