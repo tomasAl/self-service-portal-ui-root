@@ -26,4 +26,4 @@ docker-compose up --build
 ```
 
 Navigate:
-`http://localhost:9000`
+`http://localhost:9100`
