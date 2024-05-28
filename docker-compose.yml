@@ -4,7 +4,8 @@ services:
     build: ./
     image: self-service-portal-ui-root
     ports:
-      - "9000:80"
+      - "9100:80"
+
   self-service-portal-ui:
     build: ../self-service-portal-ui
     image: self-service-portal-ui
@@ -12,6 +13,7 @@ services:
       - self-service-portal-ui-root
     ports:
       - "9001:81"
+
   self-service-provider-demo-react-ui:
     build: ../self-service-provider-demo-react-ui
     image: self-service-provider-demo-react-ui
@@ -19,6 +21,7 @@ services:
       - self-service-portal-ui-root
     ports:
       - "9101:82"
+
   self-service-provider-demo-angular-ui:
     build: ../self-service-provider-demo-angular-ui
     image: self-service-provider-demo-angular-ui
@@ -26,6 +29,7 @@ services:
       - self-service-portal-ui-root
     ports:
       - "9102:83"
+
   self-service-provider-demo-vue-ui:
     build: ../self-service-provider-demo-vue-ui
     image: self-service-provider-demo-vue-ui
@@ -33,3 +37,11 @@ services:
       - self-service-portal-ui-root
     ports:
       - "9103:84"
+
+  self-service-provider-demo-vue-ui-nots:
+    build: ../self-service-provider-demo-vue-ui-nots
+    image: self-service-provider-demo-vue-ui-nots
+    depends_on:
+      - self-service-portal-ui-root
+    ports:
+      - "9104:85"

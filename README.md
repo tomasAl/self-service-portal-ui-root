@@ -17,6 +17,7 @@ npm run start
   - self-service-provider-demo-angular-ui
   - self-service-provider-demo-react-ui
   - self-service-provider-demo-vue-ui
+  - self-service-provider-demo-vue-ui-nots
 ```
 
 Run following command in current repository (`self-service-portal-ui-root`):
@@ -25,4 +26,4 @@ docker-compose up --build
 ```
 
 Navigate:
-`http://localhost:9000`
+`http://localhost:9100`
