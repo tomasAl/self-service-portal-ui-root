@@ -4,7 +4,7 @@
 
 ```
 npm i
-npm run start
+npm run dev
 ```
 
 ## Run whole solution using `docker-compose`:
@@ -18,6 +18,7 @@ npm run start
   - self-service-provider-demo-react-ui
   - self-service-provider-demo-vue-ui
   - self-service-provider-demo-vue-ui-nots
+  - rc-ses-vue-components
 ```
 
 Run following command in current repository (`self-service-portal-ui-root`):
