@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 
-  <title>Registrų Centras</title>
+  <title>VĮ Registrų centras</title>
 
   <!--
     Remove this if you only support browsers that support async/await.
@@ -37,33 +39,46 @@
 
     More information about shared dependencies can be found at https://single-spa.js.org/docs/recommended-setup#sharing-with-import-maps.
   -->
-  <script type="systemjs-importmap">
-    {
-      "imports": {
-        "react": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.1/lib/es2015/system/single-spa.min.js"
+  <% if (isLocal) { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "react": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.development.min.js",
+          "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.development.min.js",
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.1/lib/es2015/system/single-spa.dev.js"
+        }
       }
-    }
-  </script>
+    </script>
+  <% } else { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "react": "https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js",
+          "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js",
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.1/lib/es2015/system/single-spa.min.js"
+        }
+      }
+    </script>
+  <% } %>
+
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@6.0.1/lib/es2015/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
   <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
 
   <% if (isLocal) { %>
-  <script type="systemjs-importmap">
-    {
-      "imports": {
-        "@rc-ses/self-service-portal-ui": "//localhost:9001/rc-ses-self-service-portal-ui.js",
-        "@rc-ses/self-service-provider-demo-react-ui": "//localhost:9101/rc-ses-self-service-provider-demo-react-ui.js",
-        "@rc-ses/self-service-provider-demo-angular-ui": "//localhost:9102/rc-ses-self-service-provider-demo-angular-ui.js",
-        "@rc-ses/self-service-provider-demo-vue-ui": "//localhost:9103/rc-ses-self-service-provider-demo-vue-ui.js",
-        "@rc-ses/self-service-provider-demo-vue-ui-nots": "//localhost:9104/rc-ses-self-service-provider-demo-vue-ui-nots.js",
-        "@rc-ses/self-service-portal-ui-root": "//localhost:9100/rc-ses-self-service-portal-ui-root.js"
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@rc-ses/self-service-portal-ui": "//localhost:9001/rc-ses-self-service-portal-ui.js",
+          "@rc-ses/self-service-provider-demo-react-ui": "//localhost:9101/rc-ses-self-service-provider-demo-react-ui.js",
+          "@rc-ses/self-service-provider-demo-angular-ui": "//localhost:9102/rc-ses-self-service-provider-demo-angular-ui.js",
+          "@rc-ses/self-service-provider-demo-vue-ui": "//localhost:9103/rc-ses-self-service-provider-demo-vue-ui.js",
+          "@rc-ses/self-service-provider-demo-vue-ui-nots": "//localhost:9104/rc-ses-self-service-provider-demo-vue-ui-nots.js",
+          "@rc-ses/self-service-portal-ui-root": "//localhost:9100/rc-ses-self-service-portal-ui-root.js"
+        }
       }
-    }
-  </script>
+    </script>
   <% } else { %>
     <script type="systemjs-importmap">
       {
@@ -87,17 +102,18 @@
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js"></script>
 
   <% if (isLocal) { %>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
   <% } else { %>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   <% } %>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+  <script src="/config.js"></script>
 </head>
 <body>
   <style>
@@ -114,23 +130,28 @@
       height: 100%;
     }
 
-    nav {
-      background-color: #eee;
-      flex: 0 0 1rem;
-      line-height: 1rem;
-      padding: .75rem 1.5rem;
-    }
-
     #container {
       flex: 1 1 100%;
     }
 
-    footer {
-      background-color: #eee;
-      flex: 0 0 2rem;
-      font-size: .875rem;
-      line-height: 2rem;
+    #not-found-container {
+      align-items: center;
+      display: flex;
+      flex: 1 1 100%;
+      height: 100%;
+      justify-content: center;
       text-align: center;
+    }
+
+    footer {
+      background-color: #10161f;
+      color: #dce0e5;
+      flex: 0 0 2rem;
+      font-size: .8125rem;
+      font-weight: 400;
+      line-height: 1.125rem;
+      padding: 2.5rem 1rem;
+      text-align: left;
     }
   </style>
 
