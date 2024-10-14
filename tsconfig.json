@@ -1,7 +1,7 @@
 {
   "extends": "ts-config-single-spa",
   "files": [
-    "src/rc-ses-self-service-portal-ui-root.ts"
+    "src/rc-ses-self-service-portal-ui-root.tsx"
   ],
   "typeRoots": [
     "./@types"
