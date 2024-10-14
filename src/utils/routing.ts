@@ -12,4 +12,15 @@ export const redirectToSelfServiceDashboard = (): void =>
 
 export const redirectToServiceDescriptionPage = (id: string): void =>
   navigateToUrl(`${env.ENV_PUBLIC_PORTAL_URL}/paslauga/${id}`);
-export const redirectToCart = (): void => navigateToUrl('/krepselis');
+
+/*
+ * Funkcija skirta nukreipti naudotoją į paslaugos aprašymo puslapį su klaidos pranešimu,
+ * informuojančiu apie tai, kad paslauga negali būti teikiama klientui, prisijungus tam tikru vaidmeniu.
+ */
+export const unsupportedServiceRedirect = (id: string, message: string): void => {
+  const urlParams = new URLSearchParams();
+  urlParams.set('errorMessage', message);
+
+  navigateToUrl(`${env.ENV_PUBLIC_PORTAL_URL}/paslauga/${id}?${urlParams.toString()}`);
+}
+
