@@ -1,5 +1,12 @@
 import { navigateToUrl } from "single-spa";
+import Cookies from 'js-cookie'
 import env from "../env";
+
+/*
+ * Funkcija, skirta nukreipti naudotoją į savitarnos krepšelio puslapį.
+ */
+export const getToken = (): string =>
+  Cookies.get(env.ENV_AUTH_TOKEN_COOKIE_NAME);
 
 /*
  * Funkcija, skirta nukreipti naudotoją į savitarnos krepšelio puslapį.
@@ -18,6 +25,12 @@ export const redirectToLanding = (): void =>
  */
 export const redirectToSelfServiceDashboard = (): void =>
   navigateToUrl(`${env.ENV_PUBLIC_PORTAL_URL}/savitarna`);
+
+/*
+ * Funkcija, skirta nukreipti naudotoją į savitarnos titulinį puslapį.
+ */
+export const redirectToSelfServiceDashboardWithError = (type: 'failedToRetrieveOrderData' | 'failedToRetrieveListData'): void =>
+  navigateToUrl(`${env.ENV_PUBLIC_PORTAL_URL}/savitarna?${type}=true`);
 
 /*
  * Funkcija, skirta nukreipti naudotoją į paslaugos aprašymo puslapį.
