@@ -6,7 +6,7 @@ module.exports = (webpackConfigEnv, argv) => {
   const orgName = "rc-ses";
   const defaultConfig = singleSpaDefaults({
     orgName,
-    projectName: "self-service-portal-ui-root",
+    projectName: "mfe-host",
     orgPackagesAsExternal: true,
     webpackConfigEnv,
     argv,

@@ -1,18 +1,71 @@
-export type EnvVariables = {
-  ENV_PUBLIC_PORTAL_URL: string;
-  ENV_AUTH_TOKEN_COOKIE_NAME: string;
-  ENV_SERVICE_ROUTES: { path: string, application: string }[];
-};
-
 declare global {
+  interface ImportMeta {
+    readonly env: ImportMetaEnv;
+  }
+
   interface Window {
     ENV: EnvVariables;
   }
 }
 
+export type EnvVariables = {
+  ENV_RELEASE_VERSION: string;
+
+  ENV_PUBLIC_PORTAL_URL: string;
+
+  ENV_SERVICE_PROVIDER_DOMAIN: string;
+  ENV_SERVICE_PROVIDER_FORM_PATH: string;
+
+  ENV_FRONTEND_DEFAULT_LANG: string;
+
+  ENV_AUTH_TOKEN_COOKIE_NAME: string;
+  ENV_AUTH_TOKEN_COOKIE_HOST: string;
+
+  ENV_FRONTEND_API_URL: string;
+
+  ENV_KEYCLOAK_REALM: string;
+  ENV_KEYCLOAK_CLIENT_ID: string;
+  ENV_KEYCLOAK_SERVER_URL: string;
+
+  ENV_SERVICE_ROUTES: { path: string, application: string }[];
+}
+
+interface ImportMetaEnv {
+  readonly VITE_RELEASE_VERSION: string;
+
+  readonly VITE_PUBLIC_PORTAL_URL: string;
+  readonly VITE_SELF_SERVICE_SINGLE_SPA_URL: string;
+  readonly VITE_FRONTEND_DEFAULT_LANG: string;
+
+  readonly VITE_AUTH_TOKEN_COOKIE_NAME: string;
+  readonly VITE_AUTH_TOKEN_COOKIE_HOST: string;
+
+  readonly VITE_FRONTEND_API_URL: string;
+
+  readonly VITE_KEYCLOAK_REALM: string;
+  readonly VITE_KEYCLOAK_CLIENT_ID: string;
+  readonly VITE_KEYCLOAK_SERVER_URL: string;
+}
+
 const env: EnvVariables = {
+  ENV_RELEASE_VERSION: window.ENV?.ENV_RELEASE_VERSION,
+
   ENV_PUBLIC_PORTAL_URL: window.ENV?.ENV_PUBLIC_PORTAL_URL,
+
+  ENV_SERVICE_PROVIDER_DOMAIN: window.ENV?.ENV_SERVICE_PROVIDER_DOMAIN,
+  ENV_SERVICE_PROVIDER_FORM_PATH: window.ENV?.ENV_SERVICE_PROVIDER_FORM_PATH,
+
+  ENV_FRONTEND_DEFAULT_LANG: window.ENV?.ENV_FRONTEND_DEFAULT_LANG,
+
   ENV_AUTH_TOKEN_COOKIE_NAME: window.ENV?.ENV_AUTH_TOKEN_COOKIE_NAME,
+  ENV_AUTH_TOKEN_COOKIE_HOST: window.ENV?.ENV_AUTH_TOKEN_COOKIE_HOST,
+
+  ENV_FRONTEND_API_URL: window.ENV?.ENV_FRONTEND_API_URL,
+
+  ENV_KEYCLOAK_REALM: window.ENV?.ENV_KEYCLOAK_REALM,
+  ENV_KEYCLOAK_CLIENT_ID: window.ENV?.ENV_KEYCLOAK_CLIENT_ID,
+  ENV_KEYCLOAK_SERVER_URL: window.ENV?.ENV_KEYCLOAK_SERVER_URL,
+
   ENV_SERVICE_ROUTES: window.ENV?.ENV_SERVICE_ROUTES,
 }
 

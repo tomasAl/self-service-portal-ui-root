@@ -1,5 +1,6 @@
 {
-  "name": "@rc-ses/self-service-portal-ui-root",
+  "name": "@rc-ses/mfe-host",
+  "version": "0.3.0",
   "scripts": {
     "dev": "webpack serve --port 9100 --env isLocal",
     "dev:host": "webpack serve --host paslaugos.rc-ses.local --port 80 --env isLocal",
@@ -50,5 +51,5 @@
     "webpack-dev-server": "^4.0.0",
     "webpack-merge": "^6.0.1"
   },
-  "types": "dist/rc-ses-self-service-portal-ui-root.d.ts"
+  "types": "dist/rc-ses-mfe-host.d.ts"
 }

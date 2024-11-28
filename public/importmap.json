@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "@rc-ses/mfe-host": "/microfrontends/ui-host/rc-ses-mfe-host.js",
+    "@rc-ses/mfe-navigation": "/microfrontends/ui-navigation/rc-ses-mfe-navigation.js",
+    "@rc-ses/self-service-provider-demo-react-ui": "/microfrontends/service-providers/react/rc-ses-self-service-provider-demo-react-ui.js",
+    "@rc-ses/self-service-provider-demo-vue-ui": "/microfrontends/service-providers/react/rc-ses-self-service-provider-demo-vue-ui.js"
+  }
+}

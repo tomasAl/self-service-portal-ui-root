@@ -5,19 +5,15 @@ import {
   constructLayoutEngine,
 } from "single-spa-layout";
 
-import '@fontsource/source-sans-pro/400.css';
-import '@fontsource/source-sans-pro/600.css';
-import '@fontsource/source-sans-pro/700.css';
-
 import env from "./env";
 
 const routeConfig = env.ENV_SERVICE_ROUTES
 
 export const layoutAndRoutes = `
-<single-spa-router base="/paslaugos/uzsakymas">
-  <main>
-    <application name="@rc-ses/self-service-portal-ui"></application>
+<single-spa-router base="${env.ENV_SERVICE_PROVIDER_FORM_PATH}">
+  <application class="rc-ses-mfe-navigation" name="@rc-ses/mfe-navigation"></application>
 
+  <main>
     <div id="container">
       ${routeConfig.map((route) => (`
         <route path="${route.path}">
@@ -30,7 +26,7 @@ export const layoutAndRoutes = `
           <div>
             404
             <br />
-            <a href="${env.ENV_PUBLIC_PORTAL_URL}/savitarna">¯\\_(ツ)_/¯</a>
+            <a href="${env.ENV_PUBLIC_PORTAL_URL}">¯\\_(ツ)_/¯</a>
           </div>
         </div>
       </route>

@@ -70,12 +70,12 @@
     <script type="systemjs-importmap">
       {
         "imports": {
-          "@rc-ses/self-service-portal-ui": "//localhost:9001/rc-ses-self-service-portal-ui.js",
+          "@rc-ses/mfe-host": "//localhost:9100/rc-ses-mfe-host.js",
+          "@rc-ses/mfe-navigation": "//localhost:9001/rc-ses-mfe-navigation.js",
+
           "@rc-ses/self-service-provider-demo-react-ui": "//localhost:9101/rc-ses-self-service-provider-demo-react-ui.js",
           "@rc-ses/self-service-provider-demo-angular-ui": "//localhost:9102/rc-ses-self-service-provider-demo-angular-ui.js",
-          "@rc-ses/self-service-provider-demo-vue-ui": "//localhost:9103/rc-ses-self-service-provider-demo-vue-ui.js",
-          "@rc-ses/self-service-provider-demo-vue-ui-nots": "//localhost:9104/rc-ses-self-service-provider-demo-vue-ui-nots.js",
-          "@rc-ses/self-service-portal-ui-root": "//localhost:9100/rc-ses-self-service-portal-ui-root.js"
+          "@rc-ses/self-service-provider-demo-vue-ui": "//localhost:9103/rc-ses-self-service-provider-demo-vue-ui.js"
         }
       }
     </script>
@@ -113,10 +113,19 @@
       min-height: 100%;
     }
 
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
     main {
       display: flex;
       flex-direction: column;
       height: 100%;
+    }
+
+    .rc-ses-mfe-navigation {
+      display: inline;
     }
 
     #container {
@@ -146,7 +155,7 @@
 
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <script>
-    System.import('@rc-ses/self-service-portal-ui-root');
+    System.import('@rc-ses/mfe-host');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
