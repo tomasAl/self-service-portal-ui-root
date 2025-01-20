@@ -8,7 +8,7 @@ export const getToken = (): string => 'n/a';
 /*
  * Funkcija, skirta gauti Paslaugos router'io `basename`
  */
-export const getServiceFormBaseUrl = (): string => `${env.ENV_SERVICE_PROVIDER_MFE_BASENAME}${env.ENV_SERVICE_PROVIDER_SERVICE_PATH}`;
+export const getServiceFormBaseUrl = (): string => `${env.ENV_SERVICE_PROVIDER_MFE_BASENAME}/${env.ENV_SERVICE_PROVIDER_SERVICE_PATH}`;
 
 /*
  * Funkcija, skirta gauti MFE router'io basename
