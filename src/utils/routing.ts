@@ -1,18 +1,35 @@
+import env from "../env";
+
 /*
  * Funkcija, skirta gauti šiuo metu galiojantį vartotojo JTW token'ą.
  */
 export const getToken = (): string => 'n/a';
 
 /*
- * Funkcija, skirta gauti paslaugos router'io `basename`
+ * Funkcija, skirta gauti Paslaugos router'io `basename`
  */
-export const getServiceFormBaseUrl = (): string => '/';
+export const getServiceFormBaseUrl = (): string => `${env.ENV_SERVICE_PROVIDER_MFE_BASENAME}${env.ENV_SERVICE_PROVIDER_SERVICE_PATH}`;
+
+/*
+ * Funkcija, skirta gauti MFE router'io basename
+ */
+export const getMFEBaseUrl = (): string => env.ENV_SERVICE_PROVIDER_MFE_BASENAME;
+
+/*
+ * Funkcija, skirta gauti "Paslaugos" router'io nuorodos fragmentą
+ */
+export const getServiceFormUrlFragment = (): string => env.ENV_SERVICE_PROVIDER_SERVICE_PATH;
+
+/*
+ * Funkcija, skirta gauti "Mano Turtas" router'io nuorodos fragmentą
+ */
+export const getOwnedPropertiesUrlFragment = (): string => env.ENV_SERVICE_PROVIDER_OWNED_PROPERTIES_PATH;
 
 /*
  * Funkcija, skirta nukreipti naudotoją į savitarnos krepšelio puslapį.
  */
 export const redirectToCart = (): void => {
-  window.location.href = '/';
+  window.location.href = `${env.ENV_PUBLIC_PORTAL_URL}/krepselis`;
 }
 
 /*
@@ -26,14 +43,21 @@ export const redirectToLanding = (): void => {
  * Funkcija, skirta nukreipti naudotoją į savitarnos titulinį puslapį.
  */
 export const redirectToSelfServiceDashboard = (): void => {
-  window.location.href = '/';
+  window.location.href = env.ENV_PUBLIC_PORTAL_URL, {};
 }
 
 /*
- * Funkcija, skirta nukreipti naudotoją į savitarnos titulinį puslapį.
+ * Funkcija, skirta nukreipti naudotoją į savitarnos titulinį puslapį su klaidos pranešimu.
  */
 export const redirectToSelfServiceDashboardWithError = (type: 'failedToRetrieveOrderData' | 'failedToRetrieveListData'): void => {
-  window.location.href = `/?${type}=true`;
+  window.location.href = `${env.ENV_PUBLIC_PORTAL_URL}?${type}=true`;
+}
+
+/*
+ * Funkcija, skirta nukreipti naudotoją į savitarnos "Mano Turtas" puslapį.
+ */
+export const redirectToSelfServiceOwnedProperties = (): void => {
+  window.location.href = env.ENV_PUBLIC_PORTAL_URL, {};
 }
 
 /*

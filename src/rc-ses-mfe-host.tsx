@@ -7,16 +7,20 @@ import {
 
 import env from "./env";
 
-const routeConfig = env.ENV_SERVICE_ROUTES
-
 export const layoutAndRoutes = `
-<single-spa-router base="${env.ENV_SERVICE_PROVIDER_FORM_PATH}">
+<single-spa-router base="${env.ENV_SERVICE_PROVIDER_MFE_BASENAME}">
   <application class="rc-ses-mfe-navigation" name="@rc-ses/mfe-navigation"></application>
 
   <main>
     <div id="container">
-      ${routeConfig.map((route) => (`
-        <route path="${route.path}">
+      ${(env.ENV_SERVICE_ROUTES ?? []).map((route) => (`
+        <route path="${env.ENV_SERVICE_PROVIDER_SERVICE_PATH}/${route.path}">
+          <application name="${route.application}"></application>
+        </route>
+      `)).join('')}
+
+      ${(env.ENV_OWNED_PROPERTIES_ROUTES ?? []).map((route) => (`
+        <route path="${env.ENV_SERVICE_PROVIDER_OWNED_PROPERTIES_PATH}/${route.path}">
           <application name="${route.application}"></application>
         </route>
       `)).join('')}
