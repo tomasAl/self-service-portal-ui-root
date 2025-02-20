@@ -71,6 +71,17 @@ export const redirectToServiceDescriptionPage = (id: string): void => {
 }
 
 /*
+ * Funkcija, skirta nukreipti naudotoją į paslaugos aprašymo puslapį.
+ */
+export const redirectToServiceDescriptionPageWithError = (id: string, type: 'notAuthorizedToProvideBeneficiaries' | 'unsupportedRole'): void => {
+  const urlParams = new URLSearchParams();
+  urlParams.set('serviceId', id);
+  urlParams.set(type, 'true');
+
+  window.location.href = `/?${urlParams.toString()}`;
+}
+
+/*
  * Funkcija, skirta nukreipti naudotoją į paslaugos aprašymo puslapį su klaidos pranešimu.
  */
 export const unsupportedServiceRedirect = (id: string, message: string): void => {
